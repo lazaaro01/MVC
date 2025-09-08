@@ -3,13 +3,28 @@
 Backend para gerenciamento de tarefas, desenvolvido com Node.js, TypeScript, Express e Prisma.  
 Permite criar, listar, atualizar e excluir tarefas via API REST, além de fornecer documentação interativa com Swagger.
 
-## O que esse backend faz?
+## O que esse backend faz
 
 - Gerencia tarefas (CRUD: criar, ler, atualizar, excluir)
 - Expõe rotas REST para manipulação das tarefas
 - Documenta automaticamente as rotas via Swagger
 - Executa testes automatizados
 - Possui pipeline CI/CD para garantir qualidade antes do deploy
+
+## Arquitetura utilizada
+
+O projeto segue a arquitetura **MVC (Model-View-Controller)**, com camadas adicionais para melhor organização:
+
+- **Model:** Definido via Prisma, representa as entidades e regras de negócio.
+- **Repository:** Responsável pela comunicação com o banco de dados.
+- **Service:** Camada responsável pela lógica de negócio e regras específicas.
+- **Controller:** Implementa a lógica das rotas e manipulação dos dados.
+- **Routes:** Define os endpoints da API e conecta as rotas aos controllers.
+- **Views:** Responsável pela formatação das respostas da API.
+- **Middlewares:** Funções intermediárias para validação, autenticação, tratamento de erros, etc.
+- **Docs:** Configuração da documentação Swagger.
+
+Essa separação facilita manutenção, testes e escalabilidade do projeto.
 
 ## Como rodar o projeto
 
@@ -96,8 +111,12 @@ A cada push ou pull request na branch `main`, os testes são executados e, se ap
 ```
 src/
   routes/        # Rotas da API
-  docs/          # Configuração do Swagger
   controllers/   # Lógica das rotas
+  services/      # Regras de negócio
+  repositories/  # Comunicação com o banco de dados
+  views/         # Formatação das respostas
+  middlewares/   # Validação, autenticação, etc
+  docs/          # Configuração do Swagger
   prisma/        # Configuração do ORM
   ...
 ```
