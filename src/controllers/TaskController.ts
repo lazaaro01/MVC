@@ -5,7 +5,6 @@ import { TaskService } from "../services/TaskService";
 const taskSchema = z.object({
   title: z.string().min(3, "O título deve ter pelo menos 3 caracteres"),
 });
-
 export class TaskController {
   static getAll(req: Request, res: Response) {
     res.json(TaskService.getAll());
