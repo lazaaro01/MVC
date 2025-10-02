@@ -92,7 +92,7 @@ DELETE /tasks/:id
 
 ## Documentação Swagger
 
-Acesse [http://localhost:3000/docs](http://localhost:3000/docs) para visualizar e testar todas as rotas da API de forma interativa.
+Acesse [https://mvc-mmij.onrender.com/docs/](https://mvc-mmij.onrender.com/docs/) para visualizar e testar todas as rotas da API de forma interativa.
 
 ## Testes
 
